@@ -1,28 +1,38 @@
-const images = [
-  {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
-  },
-  {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-  },
-  {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
-  },
-];
+import images from './data/images.js';
+
+// Вариант решения №1
+
+// const galleryList = document.querySelector('#gallery');
+
+// const makeImageCard = ({ url, alt }) => {
+//   const galleryEl = document.createElement('li');
+//   galleryEl.classList.add('gallery__element');
+
+//   const galleryImage = document.createElement('img');
+//   galleryImage.classList.add('gallery__image');
+//   galleryImage.src = url;
+//   galleryImage.alt = alt;
+  
+//   galleryEl.append(galleryImage);
+
+//   return galleryEl;
+// };
+
+// galleryList.append(...images.map(makeImageCard));
+
+
+
+// Вариант решения №2
 
 const galleryList = document.querySelector('#gallery');
 
-const createElements = images => {
+const createGalleryCards = images => {
     let elementsList = ''
     images.forEach(image => {
-        const newString = `<li><img src="${image.url}" alt="${image.alt}"></li>`
-        elementsList += newString; 
+        const galleryCard = `<li class="gallery__element"><img class="gallery__image" src="${image.url}" alt="${image.alt}"></li>`
+        elementsList += galleryCard; 
     });
     return elementsList;
 }
 
-const itemEl = createElements(images);
-galleryList.insertAdjacentHTML('afterbegin', itemEl);
+galleryList.insertAdjacentHTML('afterbegin', createGalleryCards(images));
