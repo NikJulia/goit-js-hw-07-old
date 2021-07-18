@@ -1,8 +1,11 @@
-const inputEl = document.querySelector('input#font-size-control');
-const spanEl = document.querySelector('span#text');
+const input = document.querySelector('#font-size-control');
+const span = document.querySelector('#text');
 
-spanEl.style.fontSize = `${inputEl.value}px`;
+span.style.fontSize = `${input.value}px`;
 
-inputEl.addEventListener('input', (event) => {
-    spanEl.style.fontSize = `${event.currentTarget.value}px`;
-});
+input.addEventListener('input', onSliderDrag);
+
+
+function onSliderDrag(event) {
+    span.style.fontSize = `${event.currentTarget.value}px`;
+}

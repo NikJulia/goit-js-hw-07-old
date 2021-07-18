@@ -1,14 +1,15 @@
 const refs = {
-    inputEl: document.querySelector('#name-input'),
-    spanEl: document.querySelector('#name-output'),
-};
+    input: document.querySelector('#name-input'),
+    output: document.querySelector('#name-output'),
+}
 
-refs.inputEl.addEventListener('input', onInputChange);
+refs.input.addEventListener('input', onInputChange);
 
-function onInputChange (event) {
-    if(refs.inputEl.value === '') {
-        refs.spanEl.textContent = 'незнакомец';
+
+function onInputChange(event) {
+    if(refs.input === '') {
+        refs.output.textContent = 'незнакомец'; 
     } else {
-        refs.spanEl.textContent = event.currentTarget.value;
+        refs.output.textContent = event.currentTarget.value;
     }
 }
